@@ -17,13 +17,12 @@
  *
  * @param data Pointeur vers la donnée à afficher.
  */
-void disp_data_t(void *data)
-{
-    my_putstr("> ");
-    my_put_nbr(((data_t *)data)->hash);
-    my_putstr(" - ");
-    my_putstr(((data_t *)data)->value);
-    my_putchar('\n');
+void disp_data_t(void *data) {
+  my_putstr("> ");
+  my_put_nbr(((data_t *)data)->hash);
+  my_putstr(" - ");
+  my_putstr(((data_t *)data)->value);
+  my_putchar('\n');
 }
 
 /**
@@ -31,14 +30,13 @@ void disp_data_t(void *data)
  *
  * @param ht Pointeur vers la table de hachage à afficher.
  */
-void ht_dump(hashtable_t *ht)
-{
-    if (!ht)
-        return;
-    for (int i = 0; i < ht->len; i++) {
-        my_putchar('[');
-        my_put_nbr(i);
-        my_putstr("]:\n");
-        disp_linked_list(ht->array[i].list, disp_data_t);
-    }
+void ht_dump(hashtable_t *ht) {
+  if (!ht)
+    return;
+  for (int i = 0; i < ht->len; i++) {
+    my_putchar('[');
+    my_put_nbr(i);
+    my_putstr("]:\n");
+    disp_linked_list(ht->array[i].list, disp_data_t);
+  }
 }
